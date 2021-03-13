@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="main.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <div id="app">
+    <div class="grid">
+      <input @keyup.enter="calc()" type="text" v-model="result" placeholder="0">
+      <button @click="input(num)" class="cell num" v-for="num in numbers">{{num}}</button>
+      <button @click="input(op)" class="cell op" v-for="op in operations">{{op}}</button>
+      <button @click="reset()" class="cell op">R</button>
+      <button @click="calc()" class="cell op">=</button>
+    </div>
+  </div>
+  <div id="todo">
+    <task @task_done="delete_task(index)" :key="index" v-for="(data,index) in tasks" :data="data" ></task>
+    <div class="add_task">
+      <div class="add_task__input ">
+          <input placeholder="Новая задача..." type="text" v-model="new_task.title">
+      </div>
+      <button class="add_task__btn" @click="add_task">➕</button>
+    </div>
+  </div>
+</body>
+</body>
+<script src="script.js"></script>
+</html>
